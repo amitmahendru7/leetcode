@@ -6,10 +6,11 @@ class Solution {
             //If conatins - then decrement
             //if conatisn + then incrememt
         for(String str : operations){
-            if(str.contains("+"))
+            if(str.charAt(1) == '+')
                 sum+=1;
-            if(str.contains("-"))
+            else
                 sum-=1;
+            
         }
         return sum;
         
