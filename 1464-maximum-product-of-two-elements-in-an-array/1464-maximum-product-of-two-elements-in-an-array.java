@@ -1,12 +1,18 @@
 class Solution {
-    public int maxProduct(int[] nums) {
-        //Brute force
-        int maxValue = (nums[0]-1)*(nums[1]-1);
-        for(int i=0;i<nums.length-1;i++){
-            for(int j=i+1;j<nums.length;j++){
-                maxValue = Math.max(((nums[i]-1)*(nums[j]-1)),maxValue);
+    public int maxProduct(int[] nums) {     
+        //Using Priority Queue
+        int max1 = 0;
+        int max2 = 0;
+        for(int i: nums){
+            if(i > max1){
+                max2 = max1;
+                max1 = i;
+            }
+            else if(i > max2){
+                max2=i;
             }
         }
-        return maxValue;
-    }
+        return (max1-1)*(max2-1);      
+}
+    
 }
