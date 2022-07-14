@@ -1,16 +1,16 @@
-import java.util.*;
 class Solution {
+    private HashMap<Integer, Integer> map;
     public int[] twoSum(int[] nums, int target) {
-        HashMap<Integer,Integer> uniqueMap = new HashMap<>();
-        int[] indexArray = new int[2];
-        for(int i = 0 ; i< nums.length;i++){
-            if(uniqueMap.containsKey(target-nums[i])){
-                indexArray[0] = uniqueMap.get(target-nums[i]);
-                indexArray[1] = i;
+        map = new HashMap<Integer,Integer>();
+        int[] result = new int[2];
+        for(int i=0; i< nums.length;i++){
+            if(map.containsKey(target-nums[i])){
+                result[0]=map.get(target-nums[i]);
+                result[1]=i;
             }
             else
-                uniqueMap.put(nums[i],i);
+                map.put(nums[i],i);
         }
-        return indexArray;
+        return result;
     }
 }
