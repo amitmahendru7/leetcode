@@ -14,7 +14,7 @@ class Solution {
         int right=1;
         while(reader.get(right)<target){
             left = right;
-            right*=2;
+            right<<=1;
         }
         int mid=0;
         while(left<=right){
