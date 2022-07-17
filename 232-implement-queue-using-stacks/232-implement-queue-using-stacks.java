@@ -10,21 +10,20 @@ class MyQueue {
     public void push(int x) {
         if(stack1.isEmpty())
             front=x;
-        while(!stack1.isEmpty())
-            stack2.push(stack1.pop());
-        stack2.push(x);
-        while(!stack2.isEmpty())
-            stack1.push(stack2.pop());
+        stack1.push(x);
     }
     
     public int pop() {
-        int popped = stack1.pop();
-        if(!stack1.isEmpty())
-            front= stack1.peek();
-        return popped;
+        if(stack2.isEmpty()){
+            while(!stack1.isEmpty())
+                stack2.push(stack1.pop());
+        }
+        return stack2.pop();
     }
     
     public int peek() {
+       if(!stack2.isEmpty())
+           return stack2.peek();
         return front;
     }
     
